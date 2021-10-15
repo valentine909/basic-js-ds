@@ -26,19 +26,15 @@ module.exports = function removeKFromList(l, k) {
     while (current) {
         if (current.value === k && prev === undefined) {
             l = next;
-            current = next;
-            next = returnNextOrNull(current)
         }
         else if (current.value === k) {
             prev.next = next
-            current = next
-            next = returnNextOrNull(current)
         }
         else {
             prev = current
-            current = next
-            next = returnNextOrNull(current)
         }
+        current = next
+        next = returnNextOrNull(current)
     }
     return l
 }
